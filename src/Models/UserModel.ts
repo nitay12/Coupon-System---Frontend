@@ -1,9 +1,9 @@
-import Role from "./Role";
+import UserType from "./UserType";
 
 export abstract class BaseUserModel {
 	public id: number;
     public email: string;
-    public role: Role;
+    public userType: UserType;
 }
 
 export class CustomerModel extends BaseUserModel {

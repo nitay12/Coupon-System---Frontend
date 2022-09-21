@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Drawer from "@mui/material/Drawer";
-import Role from "../../../Models/Role";
+import UserType from "../../../Models/UserType";
 import { BaseUserModel } from "../../../Models/UserModel";
 import { authStore } from "../../../Redux/AuthState";
 import "./Menu.css";
@@ -31,7 +31,7 @@ function Menu(): JSX.Element {
   return (
     <div className="Menu">
       <Drawer open={open} onClose={() => setOpen(false)}>
-        {user?.role === Role.Customer && (
+        {user?.userType === UserType.Customer && (
           <>
             Customer Menu
             <NavLink to="/customers/my-coupons">See My Coupons</NavLink>
@@ -39,7 +39,7 @@ function Menu(): JSX.Element {
           </>
         )}
 
-        {user?.role === Role.Company && (
+        {user?.userType === UserType.Company && (
           <>
             <span>Company Menu</span>
             <NavLink to="/companies/company-coupons">See Coupons</NavLink>
@@ -49,7 +49,7 @@ function Menu(): JSX.Element {
           </>
         )}
 
-        {user?.role === Role.Admin &&
+        {user?.userType === UserType.Admin &&
           adminRoutes.map((route) => (
             <List>
               <ListItem>

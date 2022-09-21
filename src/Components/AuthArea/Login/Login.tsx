@@ -35,10 +35,10 @@ function Login(): JSX.Element {
       <Box sx={{ minWidth: 120 }}>
         <FormControl variant="standard" fullWidth sx={{ m: 1, minWidth: 120 }}>
           <InputLabel>Role</InputLabel>
-          <Select label="Role" {...register("role")}>
-            <MenuItem value="Customer">Customer</MenuItem>
-            <MenuItem value="Company">Company</MenuItem>
-            <MenuItem value="Admin">Admin</MenuItem>
+          <Select label="Role" {...register("userType")}>
+            <MenuItem value="CUSTOMER">Customer</MenuItem>
+            <MenuItem value="COMPANY">Company</MenuItem>
+            <MenuItem value="ADMIN">Admin</MenuItem>
           </Select>
           <TextField
             type="email"

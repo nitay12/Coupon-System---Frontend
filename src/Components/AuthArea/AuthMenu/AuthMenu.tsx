@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import Role from "../../../Models/Role";
+import UserType from "../../../Models/UserType";
 import {
   BaseUserModel,
   CompanyModel,
@@ -26,12 +26,12 @@ function AuthMenu(): JSX.Element {
   }, []);
 
   function getDetails(): string {
-    switch (user.role) {
-      case Role.Customer:
+    switch (user.userType) {
+      case UserType.Customer:
         const customer = user as CustomerModel;
         return "Customer: " + customer.firstName + " " + customer.lastName;
 
-      case Role.Company:
+      case UserType.Company:
         const company = user as CompanyModel;
         return "Company: " + company.name;
 
