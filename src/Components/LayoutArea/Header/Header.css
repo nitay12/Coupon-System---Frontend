@@ -1,0 +1,13 @@
+.Header {
+    height: 100%;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Header > a {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    transform: scale(2);
+}
