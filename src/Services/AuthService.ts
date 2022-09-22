@@ -6,8 +6,8 @@ import appConfig from "../Utils/Config";
 class AuthService {
 
     public async login(credentials: CredentialsModel): Promise<void> {
-        const response = await axios.post<string>(appConfig.loginUrl, credentials);
-        const token = response.data;
+        const response = await axios.post<{token: string}>(appConfig.loginUrl, credentials);
+        const token = response.data.token;
         authStore.dispatch(loginAction(token));
     }
 
