@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import AllCompanies from "../../AdminArea/AllCompanies/AllCompanies";
 import Login from "../../AuthArea/Login/Login";
 import Logout from "../../AuthArea/Logout/Logout";
 import CompanyCoupons from "../../CompaniesArea/CompanyCoupons/CompanyCoupons";
@@ -20,7 +21,9 @@ function Routing(): JSX.Element {
 
                 {/* Home */}
                 <Route path="/home" element={<Home />} />
-
+                {/* Admin */}
+                //TODO: Consider map on routes.ts adminRoutes
+                <Route path="/companies" element={<AllCompanies/>} />
                 {/* Customers */}
                 <Route path="/customers/my-coupons" element={<CustomerCoupons />} />
                 <Route path="/customers/buy-coupons" element={<BuyCoupons />} />
