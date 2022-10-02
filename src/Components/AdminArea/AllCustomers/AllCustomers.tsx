@@ -8,7 +8,6 @@ import notificationService from "../../../Services/NotificationService";
 const AllCustomers = (): JSX.Element => {
   const [customers, setCustomers] = useState<CustomerModel[]>([]);
   useEffect(() => {
-    console.log(axios.defaults.headers);
     adminService
       .fetchCustomers()
       .then((customers) => {

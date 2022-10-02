@@ -20,7 +20,7 @@ export function fetchCompaniesAction(companies: CompanyModel[]): AdminAction {
   return { type: AdminActionType.FetchCompanies, payload: companies };
 }
 export function fetchCustomersAction(customers: CustomerModel[]): AdminAction {
-  return { type: AdminActionType.FetchCompanies, payload: customers };
+  return { type: AdminActionType.FetchCustomers, payload: customers };
 }
 
 export function adminReducer(
