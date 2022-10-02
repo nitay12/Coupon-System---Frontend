@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import AllCompanies from "../../AdminArea/AllCompanies/AllCompanies";
+import AllCustomers from "../../AdminArea/AllCustomers/AllCustomers";
 import Login from "../../AuthArea/Login/Login";
 import Logout from "../../AuthArea/Logout/Logout";
 import CompanyCoupons from "../../CompaniesArea/CompanyCoupons/CompanyCoupons";
@@ -10,37 +11,30 @@ import PageNotFound from "../PageNotFound/PageNotFound";
 import "./Routing.css";
 
 function Routing(): JSX.Element {
-    return (
-        <div className="Routing">
-
-            <Routes>
-
-                {/* Auth */}
-                <Route path="/login" element={<Login />} />
-                <Route path="/logout" element={<Logout />} />
-
-                {/* Home */}
-                <Route path="/home" element={<Home />} />
-                {/* Admin */}
-                //TODO: Consider map on routes.ts adminRoutes
-                <Route path="/companies" element={<AllCompanies/>} />
-                {/* Customers */}
-                <Route path="/customers/my-coupons" element={<CustomerCoupons />} />
-                <Route path="/customers/buy-coupons" element={<BuyCoupons />} />
-
-                {/* Companies */}
-                <Route path="/companies/company-coupons" element={<CompanyCoupons />} />
-
-                {/* Default route */}
-                <Route path="/" element={<Navigate to="/home" />} />
-
-                {/* Page not found route */}
-                <Route path="*" element={<PageNotFound />} />
-
-            </Routes>
-
-        </div>
-    );
+  return (
+    <div className="Routing">
+      <Routes>
+        {/* Auth */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        {/* Home */}
+        <Route path="/home" element={<Home />} />
+        {/* Admin */}
+        //TODO: Consider map on routes.ts adminRoutes
+        <Route path="/companies" element={<AllCompanies />} />
+        <Route path="/customers" element={<AllCustomers />} />
+        {/* Customers */}
+        <Route path="/customers/my-coupons" element={<CustomerCoupons />} />
+        <Route path="/customers/buy-coupons" element={<BuyCoupons />} />
+        {/* Companies */}
+        <Route path="/companies/company-coupons" element={<CompanyCoupons />} />
+        {/* Default route */}
+        <Route path="/" element={<Navigate to="/home" />} />
+        {/* Page not found route */}
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default Routing;

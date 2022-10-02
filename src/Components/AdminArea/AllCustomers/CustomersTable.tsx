@@ -5,32 +5,33 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { CompanyModel } from "../../Models/UserModel";
+import { CustomerModel } from "../../../Models/UserModel";
 
-interface CompaniesTableProps {
-  companies: CompanyModel[];
+interface CustomersTableProps {
+  customers: CustomerModel[];
 }
 
-export function CompaniesTable(props: CompaniesTableProps): JSX.Element {
+export function CustomersTable(props: CustomersTableProps): JSX.Element {
   return (
     <TableContainer component={Paper}>
       <Table
         sx={{
           maxWidth: 650,
         }}
-        aria-label="companies table"
+        aria-label="customers table"
       >
         <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>
-            <TableCell align="right">Name</TableCell>
+            <TableCell align="right">First Name</TableCell>
+            <TableCell align="right">Last Name</TableCell>
             <TableCell align="right">Email</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.companies.map((company) => (
+          {props.customers.map((customer) => (
             <TableRow
-              key={company.id}
+              key={customer.id}
               sx={{
                 "&:last-child td, &:last-child th": {
                   border: 0,
@@ -38,10 +39,11 @@ export function CompaniesTable(props: CompaniesTableProps): JSX.Element {
               }}
             >
               <TableCell component="th" scope="row">
-                {company.id}
+                {customer.id}
               </TableCell>
-              <TableCell align="right">{company.name}</TableCell>
-              <TableCell align="right">{company.email}</TableCell>
+              <TableCell align="right">{customer.firstName}</TableCell>
+              <TableCell align="right">{customer.lastName}</TableCell>
+              <TableCell align="right">{customer.email}</TableCell>
             </TableRow>
           ))}
         </TableBody>

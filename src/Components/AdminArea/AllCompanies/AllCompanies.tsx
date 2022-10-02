@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { CompanyModel } from "../../../Models/UserModel";
 import adminService from "../../../Services/AdminService";
-import { CompaniesTable } from "../CompaniesTable";
+import { CompaniesTable } from "./CompaniesTable";
 import notificationService from "../../../Services/NotificationService";
 
 
