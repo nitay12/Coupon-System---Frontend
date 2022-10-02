@@ -4,6 +4,7 @@ export abstract class BaseUserModel {
 	public id: number;
     public email: string;
     public userType: UserType;
+    public password?: string;
 }
 
 export class CustomerModel extends BaseUserModel {

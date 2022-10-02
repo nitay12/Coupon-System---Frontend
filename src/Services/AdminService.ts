@@ -8,11 +8,16 @@ import {
 import appConfig from "../Utils/Config";
 
 class AdminService {
+  public async createCompany(company: CompanyModel): Promise<CompanyModel> {
+    const response = await axios.post<CompanyModel>(appConfig.companiesUrl, company)
+    const createdCompany = response.data;
+    return createdCompany
+  }
   public async fetchCompanies(): Promise<CompanyModel[]> {
     let companies = adminStore.getState().companies;
     if (companies.length === 0) {
       const response = await axios.get<CompanyModel[]>(
-        appConfig.adminCompaniesUrl
+        appConfig.companiesUrl
       );
       companies = response.data;
       adminStore.dispatch(fetchCompaniesAction(companies));
@@ -24,7 +29,7 @@ class AdminService {
     let customers = adminStore.getState().customers;
     if (customers.length === 0) {
       const response = await axios.get<CustomerModel[]>(
-        appConfig.adminCustomersUrl
+        appConfig.customersUrl
       );
       customers = response.data;
       adminStore.dispatch(fetchCustomersAction(customers));
