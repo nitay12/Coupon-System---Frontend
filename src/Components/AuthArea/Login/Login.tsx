@@ -8,6 +8,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import axios, { AxiosError } from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import CredentialsModel from "../../../Models/CredentialsModel";
@@ -24,7 +25,13 @@ function Login(): JSX.Element {
       await authService.login(credentials);
       notificationService.success("Welcome Back!");
       navigate("/home");
-    } catch (err: any) {
+    } catch (err) {
+      const errors = err as Error | AxiosError;
+      if(axios.isAxiosError(err)){
+        err=err.response.data
+      }
+      // do what you want with your axios error
+      console.error(err);
       notificationService.error(err);
     }
   }

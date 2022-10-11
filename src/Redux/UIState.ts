@@ -1,32 +1,34 @@
 import { createStore } from "redux";
 
 export class UIState {
-    public isMenuOpen: boolean = false;
+  public isMenuOpen: boolean = false;
 }
 
 export enum UIActionType {
-    ToggleMenu = "ToggleMenu"
+  ToggleMenu = "ToggleMenu",
 }
 
 export interface UIAction {
-    type: UIActionType;
-    payload?: any;
+  type: UIActionType;
+  payload?: any;
 }
 
 export function toggleMenu(): UIAction {
-    return { type: UIActionType.ToggleMenu };
+  return { type: UIActionType.ToggleMenu };
 }
-export function UIReducer(currentState = new UIState(), action: UIAction): UIState {
-    const newState = { ...currentState };
+export function UIReducer(
+  currentState = new UIState(),
+  action: UIAction
+): UIState {
+  const newState = { ...currentState };
 
-    switch (action.type) {
+  switch (action.type) {
+    case UIActionType.ToggleMenu:
+      newState.isMenuOpen = true;
+      break;
+  }
 
-        case UIActionType.ToggleMenu:
-            newState.isMenuOpen = true;
-            break;
-    }
-
-    return newState;
+  return newState;
 }
 
 export const UIStore = createStore(UIReducer);

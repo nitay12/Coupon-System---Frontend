@@ -4,11 +4,15 @@ import { CustomerModel, CompanyModel } from "../Models/UserModel";
 export class AdminState {
   public customers: CustomerModel[] = [];
   public companies: CompanyModel[] = [];
+  public selectedCompany: CompanyModel;
+  public selectedCustomer: CustomerModel;
 }
 
 export enum AdminActionType {
   FetchCompanies = "FetchCompanies",
   FetchCustomers = "FetchCustomers",
+  SelectCompany = "SelectCompany",
+  SelectCustomer = "SelectCustomer",
 }
 
 export interface AdminAction {
@@ -21,6 +25,12 @@ export function fetchCompaniesAction(companies: CompanyModel[]): AdminAction {
 }
 export function fetchCustomersAction(customers: CustomerModel[]): AdminAction {
   return { type: AdminActionType.FetchCustomers, payload: customers };
+}
+export function selectCustomerAction(customer: CustomerModel): AdminAction {
+  return { type: AdminActionType.SelectCustomer, payload: customer };
+}
+export function selectCompanyAction(company: CompanyModel): AdminAction {
+  return { type: AdminActionType.SelectCompany, payload: company };
 }
 
 export function adminReducer(
@@ -36,6 +46,12 @@ export function adminReducer(
 
     case AdminActionType.FetchCustomers:
       newState.customers = action.payload;
+      break;
+    case AdminActionType.SelectCompany:
+      newState.selectedCompany = action.payload;
+      break;
+    case AdminActionType.SelectCustomer:
+      newState.selectedCustomer = action.payload;
       break;
   }
 

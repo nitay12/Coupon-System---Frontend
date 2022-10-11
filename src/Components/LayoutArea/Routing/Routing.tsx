@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import AllCompanies from "../../AdminArea/AllCompanies/AllCompanies";
+import AllCompanies from "../../AdminArea/CompaniesArea/AllCompanies";
 import AllCustomers from "../../AdminArea/AllCustomers/AllCustomers";
 import CreateCompany from "../../AdminArea/CreateCompany/CreateCompany";
 import Login from "../../AuthArea/Login/Login";
@@ -10,6 +10,7 @@ import CustomerCoupons from "../../CustomersArea/CustomerCoupons/CustomerCoupons
 import Home from "../../HomeArea/Home/Home";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import "./Routing.css";
+import UpdateCompany from "../../AdminArea/CompaniesArea/UpdateCompany";
 
 function Routing(): JSX.Element {
   return (
@@ -25,6 +26,7 @@ function Routing(): JSX.Element {
         <Route path="/companies" element={<AllCompanies />} />
         <Route path="/customers" element={<AllCustomers />} />
         <Route path="/create-company" element={<CreateCompany />} />
+        <Route path="/update-company/:companyId" element={<UpdateCompany />} />
         {/* Customers */}
         <Route path="/customers/my-coupons" element={<CustomerCoupons />} />
         <Route path="/customers/buy-coupons" element={<BuyCoupons />} />
