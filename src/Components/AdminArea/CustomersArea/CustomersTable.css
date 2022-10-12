@@ -1,0 +1,4 @@
+/* Hides the SelectAll default button */
+.MuiDataGrid-root .MuiDataGrid-columnHeaderCheckbox .MuiDataGrid-columnHeaderTitleContainer {
+    display: none;
+}

@@ -8,6 +8,33 @@ import {
 import appConfig from "../Utils/Config";
 
 class AdminService {
+  public async createCustomer(customer: CustomerModel): Promise<CustomerModel> {
+    const response = await axios.post<CustomerModel>(
+      appConfig.customersUrl,
+      customer
+    );
+    const createdCustomer = response.data;
+    return createdCustomer
+  }
+  public async fetchOneCustomer(customerId: number) {
+    const response = await axios.get<CustomerModel>(
+      appConfig.customersUrl + `/${customerId}`
+    );
+    const customer = response.data;
+    return customer;
+  }
+  public async deleteCustomer(customerId: number | string) {
+    await axios.delete(`${appConfig.customersUrl}/${customerId}`);
+  }
+  public async updateCustomer(customer: CustomerModel): Promise<CustomerModel> {
+    const response = await axios.put<CustomerModel>(
+      appConfig.customersUrl,
+      customer
+    );
+    const updatedCompany = response.data;
+    return updatedCompany;
+  }
+
   public async deleteCompany(companyId: number | string) {
     await axios.delete(`${appConfig.companiesUrl}/${companyId}`);
   }
@@ -44,11 +71,9 @@ class AdminService {
 
   public async fetchCustomers(): Promise<CustomerModel[]> {
     let customers = adminStore.getState().customers;
-    if (customers.length === 0) {
-      const response = await axios.get<CustomerModel[]>(appConfig.customersUrl);
-      customers = response.data;
-      adminStore.dispatch(fetchCustomersAction(customers));
-    }
+    const response = await axios.get<CustomerModel[]>(appConfig.customersUrl);
+    customers = response.data;
+    adminStore.dispatch(fetchCustomersAction(customers));
     return customers;
   }
 }
