@@ -8,7 +8,8 @@ class DevelopmentConfig extends Config {
     public customersMyCouponsUrl = "http://localhost:3001/api/customers/my-coupons/";
     public customersOtherCouponsUrl = "http://localhost:3001/api/customers/other-coupons/";
     public customersBuyCouponUrl = "http://localhost:3001/api/customers/buy-coupon/";
-    public companyCouponsUrl = "http://localhost:3001/api/companies/company-coupons/";
+    public companyCouponsUrl = this.baseUrl + "/company/coupons/";
+
 }
 
 class ProductionConfig extends Config {
@@ -19,7 +20,7 @@ class ProductionConfig extends Config {
     public customersMyCouponsUrl = "http://localhost:3001/api/customers/my-coupons/";
     public customersOtherCouponsUrl = "http://localhost:3001/api/customers/other-coupons/";
     public customersBuyCouponUrl = "http://localhost:3001/api/customers/buy-coupon/";
-    public companyCouponsUrl = "http://localhost:3001/api/companies/company-coupons/";
+    public companyCouponsUrl = this.baseUrl + "/company/coupons/";
 }
 
 const appConfig = process.env.NODE_ENV === "development" ? new DevelopmentConfig() : new ProductionConfig();

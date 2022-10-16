@@ -16,3 +16,12 @@ export const adminRoutes: Route[] = [
     path: "/create-company",
   }
 ];
+
+export const companyRoutes: Route[] = [
+  { title: "Coupons Panel", 
+    path: "/companies/company-coupons" },
+  {
+    title: "Create Coupon",
+    path: "/create-coupon",
+  }
+];

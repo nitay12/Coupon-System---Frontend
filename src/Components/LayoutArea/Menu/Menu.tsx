@@ -7,7 +7,7 @@ import { authStore } from "../../../Redux/AuthState";
 import "./Menu.css";
 import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { UIStore } from "../../../Redux/UIState";
-import { adminRoutes } from "../../../Utils/routes";
+import { adminRoutes, companyRoutes } from "../../../Utils/routes";
 
 function Menu(): JSX.Element {
   const [user, setUser] = useState<BaseUserModel>();
@@ -39,15 +39,18 @@ function Menu(): JSX.Element {
           </>
         )}
 
-        {user?.userType === UserType.Company && (
-          <>
-            <span>Company Menu</span>
-            <NavLink to="/companies/company-coupons">See Coupons</NavLink>
-            <NavLink to="#">Create Coupon</NavLink>
-            <NavLink to="#">Update Coupon</NavLink>
-            <NavLink to="#">Delete Coupon</NavLink>
-          </>
-        )}
+        {user?.userType === UserType.Company &&
+          companyRoutes.map((route) => (
+            <List>
+              <ListItem>
+                <ListItemButton>
+                  <NavLink to={route.path}>
+                    <ListItemText>{route.title}</ListItemText>
+                  </NavLink>
+                </ListItemButton>
+              </ListItem>
+            </List>
+          ))}
 
         {user?.userType === UserType.Admin &&
           adminRoutes.map((route) => (

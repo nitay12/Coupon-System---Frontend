@@ -22,20 +22,23 @@ import {
 } from "@mui/material";
 import adminService from "../../../Services/AdminService";
 import notificationService from "../../../Services/NotificationService";
-interface CompaniesTableProps {
-  companies: CompanyModel[];
-}
+// interface CompaniesTableProps {
+//   companies: CompanyModel[];
+// }
 
-export function CompaniesTable(props: CompaniesTableProps): JSX.Element {
-  const rows: GridRowsProp = props.companies;
+export function CompaniesTable(): JSX.Element {
+  const [companies, setCompanies] = useState<CompanyModel[]>([])
+  const [selectedRows, setSelectedRows] = useState<GridSelectionModel>([]);
+  const [openDeleteDialog, setOpenDeleteDialog] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+  const rows: GridRowsProp = companies;
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID" },
     { field: "name", headerName: "Name" },
     { field: "email", headerName: "Email" },
   ];
-  const [selectedRows, setSelectedRows] = useState<GridSelectionModel>([]);
-  const [openDeleteDialog, setOpenDeleteDialog] = useState<boolean>(false);
-  const navigate = useNavigate();
+
 
   const handleCloseDeleteDialog = () => {
     setOpenDeleteDialog(false);
@@ -46,10 +49,15 @@ export function CompaniesTable(props: CompaniesTableProps): JSX.Element {
       notificationService.success(
         `successfully deleted company (id:${companyId})`
       );
+      fetchCompanies()
     } catch (err: any) {
       notificationService.error(err);
     }
   }
+
+  useEffect(() => {
+    return fetchCompanies();
+}, []);
 
   return (
     <div style={{ height: "400", width: "100%" }}>
@@ -115,4 +123,14 @@ export function CompaniesTable(props: CompaniesTableProps): JSX.Element {
       />
     </div>
   );
+
+  function fetchCompanies() {
+    adminService
+      .fetchCompanies()
+      .then((companies) => {
+        setCompanies(companies);
+      })
+      .catch((err) => notificationService.error(err));
+    return () => { };
+  }
 }

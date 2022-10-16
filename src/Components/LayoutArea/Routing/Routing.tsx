@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import AllCompanies from "../../AdminArea/CompaniesArea/AllCompanies";
 import AllCustomers from "../../AdminArea/CustomersArea/AllCustomers";
 import CreateCompany from "../../AdminArea/CreateCompany/CreateCompany";
 import Login from "../../AuthArea/Login/Login";
@@ -12,6 +11,7 @@ import PageNotFound from "../PageNotFound/PageNotFound";
 import UpdateCompany from "../../AdminArea/CompaniesArea/UpdateCompany";
 import UpdateCustomer from "../../AdminArea/CustomersArea/UpdateCustomer";
 import CreateCustomer from "../../AdminArea/CustomersArea/CreateCustomer";
+import { CompaniesTable } from "../../AdminArea/CompaniesArea/CompaniesTable";
 
 function Routing(): JSX.Element {
   return (
@@ -24,7 +24,7 @@ function Routing(): JSX.Element {
         <Route path="/home" element={<Home />} />
         {/* Admin */}
         //TODO: Consider map on routes.ts adminRoutes
-        <Route path="/companies" element={<AllCompanies />} />
+        <Route path="/companies" element={<CompaniesTable />} />
         <Route path="/create-company" element={<CreateCompany />} />
         <Route path="/update-company/:companyId" element={<UpdateCompany />} />
         <Route path="/customers" element={<AllCustomers />} />
