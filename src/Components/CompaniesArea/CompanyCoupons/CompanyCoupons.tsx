@@ -13,10 +13,7 @@ function CompanyCoupons(): JSX.Element {
   const [coupons, setCoupons] = useState<CouponModel[]>([]);
 
   useEffect(() => {
-    companiesService
-      .fetchCompanyCoupons()
-      .then((coupons) => setCoupons(coupons))
-      .catch((err) => notificationService.error(err));
+    fetchCoupons();
   }, []);
 
   const rows: GridRowsProp<CouponModel> = coupons;
@@ -38,12 +35,20 @@ function CompanyCoupons(): JSX.Element {
   const handleCloseDeleteDialog = () => {
     setOpenDeleteDialog(false);
   };
+  function fetchCoupons() {
+    companiesService
+      .fetchCompanyCoupons()
+      .then((coupons) => setCoupons(coupons))
+      .catch((err) => notificationService.error(err));
+  }
+
   async function handleDelete(couponId: GridRowId) {
     try {
-      await companiesService.deleteCustomer(couponId);
+      await companiesService.deleteCoupon(couponId);
       notificationService.success(
         `successfully deleted coupon (id:${couponId})`
       );
+      fetchCoupons()
     } catch (err: any) {
       notificationService.error(err);
     }
@@ -58,12 +63,12 @@ function CompanyCoupons(): JSX.Element {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Warning, Deleting Customer"}
+          {"Warning, Deleting Coupon"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            You are about to delete a customer from your database. Are you sure
-            you want to delete this customer?
+            You are about to delete a coupon from your database. Are you sure
+            you want to delete this coupon?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -78,7 +83,7 @@ function CompanyCoupons(): JSX.Element {
         <Box>
           <Button
             variant="contained"
-            onClick={() => navigate("/update-customer/" + selectedRows[0])}
+            onClick={() => navigate("/update-coupon/" + selectedRows[0])}
           >
             Update
           </Button>

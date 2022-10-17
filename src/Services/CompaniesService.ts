@@ -4,8 +4,8 @@ import CouponModel from "../Models/CouponModel";
 import appConfig from "../Utils/Config";
 
 class CompaniesService {
-    deleteCustomer(couponId: GridRowId) {
-      throw new Error("Method not implemented.");
+    public async deleteCoupon(couponId: GridRowId) {
+      await axios.delete(`${appConfig.companyCouponsUrl}${couponId}`)
     }
 
     public async fetchCompanyCoupons(): Promise<CouponModel[]> {
