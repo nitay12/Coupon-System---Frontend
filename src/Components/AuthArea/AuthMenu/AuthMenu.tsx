@@ -25,21 +25,6 @@ function AuthMenu(): JSX.Element {
     };
   }, []);
 
-  function getDetails(): string {
-    switch (user.userType) {
-      case UserType.Customer:
-        const customer = user as CustomerModel;
-        return "Customer: " + customer.firstName + " " + customer.lastName;
-
-      case UserType.Company:
-        const company = user as CompanyModel;
-        return "Company: " + company.name;
-
-      default:
-        return "Admin: " + user.email;
-    }
-  }
-
   return (
     <div className="AuthMenu">
       {!user && (
@@ -53,7 +38,6 @@ function AuthMenu(): JSX.Element {
 
       {user && (
         <>
-          <span>{getDetails()} | </span>
           <NavLink to="/logout">Logout</NavLink>
         </>
       )}
