@@ -60,7 +60,7 @@ export function CompaniesTable(): JSX.Element {
 }, []);
 
   return (
-    <div style={{ height: "400", width: "100%" }}>
+    <div style={{ height: "80vh" }}>
       <Dialog
         open={openDeleteDialog}
         onClose={handleCloseDeleteDialog}
@@ -102,7 +102,7 @@ export function CompaniesTable(): JSX.Element {
         </Box>
       ) : null}
       <DataGrid
-        style={{ height: 300 }}
+        style={{ height: "80vh" }}
         rows={rows}
         columns={columns}
         checkboxSelection

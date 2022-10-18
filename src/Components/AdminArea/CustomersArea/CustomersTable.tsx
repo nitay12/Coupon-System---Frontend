@@ -94,7 +94,7 @@ export function CustomersTable(props: CustomersTableProps): JSX.Element {
         </Box>
       ) : null}
       <DataGrid
-        style={{ height: 300 }}
+        style={{ height: "80vh" }}
         rows={rows}
         columns={columns}
         checkboxSelection

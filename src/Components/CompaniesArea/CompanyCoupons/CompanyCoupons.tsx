@@ -55,7 +55,7 @@ function CompanyCoupons(): JSX.Element {
   } 
 
   return (
-    <div style={{ height: "400", width: "100%" }}>
+    <div style={{ height: "80vh" }}>
       <Dialog
         open={openDeleteDialog}
         onClose={handleCloseDeleteDialog}
