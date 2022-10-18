@@ -51,8 +51,9 @@ export function CustomersTable(props: CustomersTableProps): JSX.Element {
   }
 
   return (
-    <div style={{ height: "400", width: "100%" }}>
+    <div>
       <Dialog
+        style={{ height: "80vh"}}
         open={openDeleteDialog}
         onClose={handleCloseDeleteDialog}
         aria-labelledby="alert-dialog-title"
