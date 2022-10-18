@@ -57,7 +57,9 @@ const CreateCoupon = (): JSX.Element => {
       <Box sx={{ minWidth: 120 }}>
         <FormControl variant="standard" fullWidth sx={{ m: 1, minWidth: 120 }}>
         <InputLabel>Category</InputLabel>
-          <Select>
+          <Select
+            {...register("category")}
+          >
             <MenuItem value="FOOD">Food</MenuItem>
             <MenuItem value="ELECTRICITY">Electricity</MenuItem>
             <MenuItem value="RESTAURANT">Restaurant</MenuItem>
@@ -77,7 +79,7 @@ const CreateCoupon = (): JSX.Element => {
           />
           <MobileDatePicker
           label="Start Date"
-          inputFormat="MM-DD-YYYY"
+          inputFormat="YYYY-MM-DD"
           value={startDate}
           onChange={handleStartDateChange}
           renderInput={(params) => <TextField {...params} />}
@@ -85,7 +87,7 @@ const CreateCoupon = (): JSX.Element => {
         />
           <MobileDatePicker
           label="End Date"
-          inputFormat="MM-DD-YYYY"
+          inputFormat="YYYY-MM-DD"
           value={endDate}
           onChange={handleEndDateChange}
           renderInput={(params) => <TextField {...params} />}
