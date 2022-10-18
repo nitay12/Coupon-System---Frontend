@@ -24,4 +24,13 @@ export const companyRoutes: Route[] = [
     title: "Create Coupon",
     path: "/companies/create-coupon",
   }
+]
+
+export const customerRoutes: Route[] = [
+  { title: "Buy Coupons", 
+    path: "/customers/buy-coupons" },
+  {
+    title: "My Coupons",
+    path: "/customers/my-coupons",
+  }
 ];

@@ -4,8 +4,7 @@ import CreateCompany from "../../AdminArea/CreateCompany/CreateCompany";
 import Login from "../../AuthArea/Login/Login";
 import Logout from "../../AuthArea/Logout/Logout";
 import CompanyCoupons from "../../CompaniesArea/CompanyCoupons/CompanyCoupons";
-import BuyCoupons from "../../CustomersArea/BuyCoupons/BuyCoupons";
-import CustomerCoupons from "../../CustomersArea/CustomerCoupons/CustomerCoupons";
+import BuyCoupons from "../../CustomersArea/CustomerCoupons/BuyCoupons";
 import Home from "../../HomeArea/Home/Home";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import UpdateCompany from "../../AdminArea/CompaniesArea/UpdateCompany";
@@ -13,6 +12,7 @@ import UpdateCustomer from "../../AdminArea/CustomersArea/UpdateCustomer";
 import CreateCustomer from "../../AdminArea/CustomersArea/CreateCustomer";
 import { CompaniesTable } from "../../AdminArea/CompaniesArea/CompaniesTable";
 import CreateCoupon from "../../CompaniesArea/CreateCoupon/CreateCoupon";
+import MyCoupons from "../../CustomersArea/CustomerCoupons/MyCoupons";
 
 function Routing(): JSX.Element {
   return (
@@ -34,8 +34,8 @@ function Routing(): JSX.Element {
         />
         <Route path="/create-customer" element={<CreateCustomer />} />
         {/* Customers */}
-        <Route path="/customers/my-coupons" element={<CustomerCoupons />} />
         <Route path="/customers/buy-coupons" element={<BuyCoupons />} />
+        <Route path="/customers/my-coupons" element={<MyCoupons />} />
         {/* Companies */}
         <Route path="/companies/company-coupons" element={<CompanyCoupons />} />
         <Route path="/companies/create-coupon" element={<CreateCoupon />} />

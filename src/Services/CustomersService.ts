@@ -4,25 +4,19 @@ import { buyCouponAction, customersStore, fetchCouponsAction } from "../Redux/Cu
 import appConfig from "../Utils/Config";
 
 class CustomersService {
-
-    public async fetchMyCoupons(): Promise<CouponModel[]> {
-        let coupons = customersStore.getState().coupons;
-        if (coupons.length === 0) {
-            const response = await axios.get<CouponModel[]>(appConfig.customersMyCouponsUrl);
-            coupons = response.data;
-            customersStore.dispatch(fetchCouponsAction(coupons));
-        }
+    public async fetchAllCoupons() {
+        const response = await axios.get<CouponModel[]>(appConfig.customersAllCouponsUrl);
+        const coupons = response.data;
         return coupons;
     }
-
-    public async fetchOtherCoupons(): Promise<CouponModel[]> {
-        const response = await axios.get<CouponModel[]>(appConfig.customersOtherCouponsUrl);
+    public async fetchCustomerCoupons() {
+        const response = await axios.get<CouponModel[]>(appConfig.customersMyCouponsUrl);
         const coupons = response.data;
         return coupons;
     }
 
-    public async buyCoupon(couponId: number): Promise<CouponModel> {
-        const response = await axios.post<CouponModel>(appConfig.customersBuyCouponUrl + couponId);
+    public async buyCoupon(couponId: number|string): Promise<CouponModel> {
+        const response = await axios.put<CouponModel>(appConfig.customersBuyCouponUrl + couponId);
         const coupon = response.data;
         customersStore.dispatch(buyCouponAction(coupon));
         return coupon;

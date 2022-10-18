@@ -7,7 +7,7 @@ import { authStore } from "../../../Redux/AuthState";
 import "./Menu.css";
 import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { UIStore } from "../../../Redux/UIState";
-import { adminRoutes, companyRoutes } from "../../../Utils/routes";
+import { adminRoutes, companyRoutes, customerRoutes } from "../../../Utils/routes";
 
 function Menu(): JSX.Element {
   const [user, setUser] = useState<BaseUserModel>();
@@ -32,12 +32,17 @@ function Menu(): JSX.Element {
     <div className="Menu">
       <Drawer open={open} onClose={() => setOpen(false)}>
         {user?.userType === UserType.Customer && (
-          <>
-            Customer Menu
-            <NavLink to="/customers/my-coupons">See My Coupons</NavLink>
-            <NavLink to="/customers/buy-coupons">Buy Coupons</NavLink>
-          </>
-        )}
+         customerRoutes.map((route) => (
+          <List>
+            <ListItem>
+              <ListItemButton>
+                <NavLink to={route.path}>
+                  <ListItemText>{route.title}</ListItemText>
+                </NavLink>
+              </ListItemButton>
+            </ListItem>
+          </List>
+        )))}
 
         {user?.userType === UserType.Company &&
           companyRoutes.map((route) => (

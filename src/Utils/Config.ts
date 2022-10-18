@@ -5,9 +5,9 @@ class DevelopmentConfig extends Config {
     public loginUrl = this.baseUrl + "/auth/login";
     public adminCompaniesUrl = this.baseUrl+"/admin/companies"
     public adminCustomersUrl = this.baseUrl+"/admin/customers"
-    public customersMyCouponsUrl = "http://localhost:3001/api/customers/my-coupons/";
-    public customersOtherCouponsUrl = "http://localhost:3001/api/customers/other-coupons/";
-    public customersBuyCouponUrl = "http://localhost:3001/api/customers/buy-coupon/";
+    public customersMyCouponsUrl = this.baseUrl+"/customer/coupons"
+    public customersAllCouponsUrl = this.baseUrl+"/coupons/all"
+    public customersBuyCouponUrl = this.baseUrl+"/customer/purchase/";
     public companyCouponsUrl = this.baseUrl + "/company/coupons/";
 
 }
@@ -17,8 +17,8 @@ class ProductionConfig extends Config {
     public loginUrl = this.baseUrl + "/auth/login";
     public adminCompaniesUrl = this.baseUrl+"/admin/companies"
     public adminCustomersUrl = this.baseUrl+"/admin/customers"
-    public customersMyCouponsUrl = "http://localhost:3001/api/customers/my-coupons/";
-    public customersOtherCouponsUrl = "http://localhost:3001/api/customers/other-coupons/";
+    public customersMyCouponsUrl = this.baseUrl+"/customer/coupons"
+    public customersAllCouponsUrl = "http://localhost:3001/api/customers/other-coupons/";
     public customersBuyCouponUrl = "http://localhost:3001/api/customers/buy-coupon/";
     public companyCouponsUrl = this.baseUrl + "/company/coupons/";
 }
