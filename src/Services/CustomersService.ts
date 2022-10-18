@@ -9,6 +9,11 @@ class CustomersService {
         const coupons = response.data;
         return coupons;
     }
+    public async fetchOneCoupon() {
+        const response = await axios.get<CouponModel>(appConfig.singleCouponUrl);
+        const coupons = response.data;
+        return coupons;
+    }
     public async fetchCustomerCoupons() {
         const response = await axios.get<CouponModel[]>(appConfig.customersMyCouponsUrl);
         const coupons = response.data;

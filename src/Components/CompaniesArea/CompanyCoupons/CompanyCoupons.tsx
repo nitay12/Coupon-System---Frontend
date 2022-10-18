@@ -3,10 +3,8 @@ import { DataGrid, GridColDef, GridRowId, GridRowsProp, GridSelectionModel } fro
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CouponModel from "../../../Models/CouponModel";
-import { authStore } from "../../../Redux/AuthState";
 import companiesService from "../../../Services/CompaniesService";
 import notificationService from "../../../Services/NotificationService";
-import CouponCard from "../../SharedArea/CouponCard/CouponCard";
 import "./CompanyCoupons.css";
 
 function CompanyCoupons(): JSX.Element {
