@@ -1,8 +1,8 @@
 enum Category {
     Food = "Food",
-    Clothing = "Clothing",
-    Toys = "Toys",
-    Books = "Books"
+    ELECTRICITY = "ELECTRICITY",
+    RESTAURANT = "RESTAURANT",
+    VACATION = "VACATION"
 }
 
 export default Category;

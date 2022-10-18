@@ -8,7 +8,7 @@ interface CouponCardProps {
 
 function CouponCard(props: CouponCardProps): JSX.Element {
   const style = {
-    backgroundImage: `url(${props.coupon.imageUrl})`,
+    backgroundImage: `url(${props.coupon.image})`,
   };
 
   return (

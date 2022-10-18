@@ -22,7 +22,6 @@ const CreateCompany = (): JSX.Element => {
   }
   return (
     <div className="CreateCompany">
-      <Typography variant="h5">Login</Typography>
       <Box sx={{ minWidth: 120 }}>
         <FormControl variant="standard" fullWidth sx={{ m: 1, minWidth: 120 }}>
           <TextField

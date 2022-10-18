@@ -12,6 +12,7 @@ import UpdateCompany from "../../AdminArea/CompaniesArea/UpdateCompany";
 import UpdateCustomer from "../../AdminArea/CustomersArea/UpdateCustomer";
 import CreateCustomer from "../../AdminArea/CustomersArea/CreateCustomer";
 import { CompaniesTable } from "../../AdminArea/CompaniesArea/CompaniesTable";
+import CreateCoupon from "../../CompaniesArea/CreateCoupon/CreateCoupon";
 
 function Routing(): JSX.Element {
   return (
@@ -23,7 +24,6 @@ function Routing(): JSX.Element {
         {/* Home */}
         <Route path="/home" element={<Home />} />
         {/* Admin */}
-        //TODO: Consider map on routes.ts adminRoutes
         <Route path="/companies" element={<CompaniesTable />} />
         <Route path="/create-company" element={<CreateCompany />} />
         <Route path="/update-company/:companyId" element={<UpdateCompany />} />
@@ -38,6 +38,7 @@ function Routing(): JSX.Element {
         <Route path="/customers/buy-coupons" element={<BuyCoupons />} />
         {/* Companies */}
         <Route path="/companies/company-coupons" element={<CompanyCoupons />} />
+        <Route path="/companies/create-coupon" element={<CreateCoupon />} />
         {/* Default route */}
         <Route path="/" element={<Navigate to="/home" />} />
         {/* Page not found route */}

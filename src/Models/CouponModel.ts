@@ -10,7 +10,7 @@ class CouponModel {
     public endDate: string;
     public amount: number;
     public price: number;
-    public imageUrl: string;
+    public image: string;
 }
 
 export default CouponModel;
